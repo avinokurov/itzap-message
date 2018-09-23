@@ -1,0 +1,24 @@
+version: '3.2'
+
+services:
+
+  mail:
+    image: boky/postfix
+    environment:
+      ALLOWED_SENDER_DOMAINS: archi-tech.com
+
+    ports:
+      - 1587:587
+
+  message:
+    # Builds message service
+    build: "."
+    image: message-service:latest
+    privileged: true
+    ports:
+      - 8025:8025
+    links:
+      - mail
+
+    depends_on:
+      - mail

@@ -1,0 +1,10 @@
+A new user has been created for you. Please login using the following:
+Username = ${USER_NAME}
+Password = ${PASSWORD}
+
+
+To change your password:
+1.	Click the user profile icon on the top right of the DART screen.
+2.	Enter new password.
+3.	Confirm new password.
+4.	Click save.
