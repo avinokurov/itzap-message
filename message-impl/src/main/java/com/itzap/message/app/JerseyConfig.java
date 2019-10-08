@@ -1,7 +1,7 @@
-package com.atsi.message.app;
+package com.itzap.message.app;
 
-import com.atsi.message.config.Factories;
-import com.atsi.message.services.EMailService;
+import com.itzap.message.config.Factories;
+import com.itzap.message.services.EMailService;
 import org.glassfish.hk2.api.ServiceLocator;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.glassfish.jersey.inject.hk2.ImmediateHk2InjectionManager;

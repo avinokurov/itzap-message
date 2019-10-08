@@ -1,4 +1,4 @@
-package com.atsi.message.app;
+package com.itzap.message.app;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.Tomcat;

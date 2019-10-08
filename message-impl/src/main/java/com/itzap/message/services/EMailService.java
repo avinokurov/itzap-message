@@ -1,22 +1,22 @@
-package com.atsi.message.services;
+package com.itzap.message.services;
 
-import com.atsi.api.message.model.Message;
-import com.atsi.api.message.model.MessageStatus;
-import com.atsi.api.message.model.MessageType;
-import com.atsi.api.message.model.ResponseStatus;
-import com.atsi.api.message.services.MessageService;
-import com.atsi.core.command.AbstractCommand;
-import com.atsi.exceptions.ATSIEmailError;
-import com.atsi.exceptions.ATSIException;
 import com.google.common.base.Joiner;
+import com.itzap.api.message.model.Message;
+import com.itzap.api.message.model.MessageStatus;
+import com.itzap.api.message.model.MessageType;
+import com.itzap.api.message.model.ResponseStatus;
+import com.itzap.api.message.services.MessageService;
+import com.itzap.common.exception.IZapException;
+import com.itzap.message.exceptions.ITZapEmailError;
+import com.itzap.rxjava.command.RunnableCommand;
 import com.typesafe.config.Config;
+import io.reactivex.Observable;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.HtmlEmail;
 import org.apache.commons.mail.SimpleEmail;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import rx.Observable;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,12 +34,7 @@ public class EMailService implements MessageService {
 
     @Override
     public Observable<ResponseStatus> send(Message message) {
-        return new AbstractCommand<ResponseStatus, AbstractCommand>("cmd-emailCommand") {
-            @Override
-            protected AbstractCommand getThis() {
-                return this;
-            }
-
+        return new RunnableCommand<ResponseStatus>("cmd-emailCommand") {
             @Override
             protected ResponseStatus run() {
                 Email email = new SimpleEmail();
@@ -61,9 +56,10 @@ public class EMailService implements MessageService {
                     }
                     email.send();
                 } catch (Exception e) {
-                    throw new ATSIException(ATSIEmailError.EMAIL_ERROR,
+                    throw new IZapException(
                             String.format("Failed to send message: [%s]. config: [%s:%s]",
-                                    message, email.getHostName(), email.getSmtpPort()), e);
+                                    message, email.getHostName(), email.getSmtpPort()),
+                            ITZapEmailError.EMAIL_ERROR, e);
                 }
                 return ResponseStatus.builder()
                         .setAddress(Joiner.on(';').join(message.getAddresses()))

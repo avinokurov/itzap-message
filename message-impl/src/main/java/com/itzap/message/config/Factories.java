@@ -1,6 +1,6 @@
-package com.atsi.message.config;
+package com.itzap.message.config;
 
-import com.atsi.message.services.EMailService;
+import com.itzap.message.services.EMailService;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 

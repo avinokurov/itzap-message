@@ -1,4 +1,4 @@
-package com.atsi.message.config;
+package com.itzap.message.config;
 
 
 import org.glassfish.hk2.api.Factory;
