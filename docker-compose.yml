@@ -14,6 +14,8 @@ services:
     # Builds message service
     build: "."
     image: message-service:latest
+    environment: 
+      MAIL_HOST: mail
     privileged: true
     ports:
       - 8025:8025

@@ -23,8 +23,7 @@ public class JerseyConfig extends ResourceConfig {
         register(JacksonFeature.class);
 
         // register endpoints
-        packages("com.atsi.message.rest",
-                "com.atsi.core.rest");
+        packages("com.itzap.message.rest");
 
         register(new ContainerLifecycleListener()
         {

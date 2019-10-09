@@ -24,11 +24,11 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.itzap.message.app.DARTApplication</mainClass>
+                            <mainClass>com.itzap.message.app.EmailApplication</mainClass>
                         </manifest>
                     </archive>
                     <descriptors>
-                        <descriptor>src/main/resources/assembly/atsi-message.xml</descriptor>
+                        <descriptor>src/main/resources/assembly/itzap-message.xml</descriptor>
                     </descriptors>
                     <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
@@ -78,16 +78,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-jasper</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-jasper-el</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-json-jackson</artifactId>
         </dependency>
@@ -121,12 +111,13 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.itzap.message</groupId>
             <artifactId>message-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
+
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpcore</artifactId>

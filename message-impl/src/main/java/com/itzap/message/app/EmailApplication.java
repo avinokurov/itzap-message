@@ -13,15 +13,15 @@ import java.nio.charset.Charset;
 /**
  *
  */
-public class DARTApplication
+public class EmailApplication
 {
-    private static final Logger LOGGER = LoggerFactory.getLogger(DARTApplication.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(EmailApplication.class);
 
     public static void main(String[] args) {
         try {
             start();
         } catch (Exception e) {
-            LOGGER.error("DART application failed to run", e);
+            LOGGER.error("ITZap Email application failed to run", e);
         }
     }
 
@@ -35,15 +35,17 @@ public class DARTApplication
         }
 
         Tomcat tomcat = new Tomcat();
-        tomcat.setPort(Integer.valueOf(port));
+        tomcat.setPort(Integer.parseInt(port));
         tomcat.getHost().setAppBase(appBase);
+
         Context context = tomcat.addWebapp(contextPath, appBase);
 
         Tomcat.addServlet(context, "jersey-container-servlet",
                 new ServletContainer(resourceConfig()));
-        context.addServletMappingDecoded(UDecoder.URLDecode("/v1/atsi/message/*", Charset.defaultCharset()),
+        context.addServletMappingDecoded(UDecoder.URLDecode("/v1/itzap/message/*", Charset.defaultCharset()),
                 "jersey-container-servlet");
 
+        tomcat.getConnector();
         tomcat.start();
         tomcat.getServer().await();
     }

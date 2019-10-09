@@ -16,7 +16,7 @@
         </layout>
     </appender>
 
-    <root level="info" additivity="false">
+    <root level="debug" additivity="false">
         <appender-ref ref="FILE-ENGINE-ERROR" />
         <appender-ref ref="STDOUT" />
     </root>
