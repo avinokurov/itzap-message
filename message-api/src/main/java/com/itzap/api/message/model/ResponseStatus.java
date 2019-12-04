@@ -3,9 +3,9 @@ package com.itzap.api.message.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import io.swagger.annotations.ApiModel;
+import io.swagger.v3.oas.annotations.media.Schema;
 
-@ApiModel
+@Schema
 @JsonDeserialize(builder = ResponseStatus.Builder.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ResponseStatus {

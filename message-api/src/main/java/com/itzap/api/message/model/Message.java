@@ -6,13 +6,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import com.google.common.base.MoreObjects;
-import io.swagger.annotations.ApiModel;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@ApiModel
+@Schema
 @JsonDeserialize(builder = Message.Builder.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Message {

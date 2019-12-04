@@ -1,11 +1,11 @@
 package com.itzap.api.message.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
+import io.swagger.v3.oas.annotations.media.Schema;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@ApiModel
+@Schema
 public enum MessageType {
     HTML("html"),
     TEXT("text");

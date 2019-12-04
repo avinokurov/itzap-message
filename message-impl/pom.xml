@@ -58,13 +58,13 @@
         </dependency>
 
         <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-jersey2-jaxrs</artifactId>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-jaxrs2</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-jaxrs2-servlet-initializer</artifactId>
         </dependency>
 
         <dependency>
@@ -121,6 +121,15 @@
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpcore</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.itzap</groupId>
+            <artifactId>itzap-jerseyswagger</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.itzap.data</groupId>
+            <artifactId>itzap-config</artifactId>
         </dependency>
     </dependencies>
 

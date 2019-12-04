@@ -1,5 +1,8 @@
 package com.itzap.message.app;
 
+import com.itzap.config.ConfigBuilder;
+import com.itzap.config.ConfigType;
+import com.itzap.jerseyswagger.SwaggerContext;
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.tomcat.util.buf.UDecoder;
@@ -44,6 +47,12 @@ public class EmailApplication
                 new ServletContainer(resourceConfig()));
         context.addServletMappingDecoded(UDecoder.URLDecode("/v1/itzap/message/*", Charset.defaultCharset()),
                 "jersey-container-servlet");
+
+        SwaggerContext.addSwaggerServlet(tomcat, context,
+                ConfigBuilder.builder(ConfigType.TYPE_SAFE)
+                        .build()
+                        .getConfig("swagger"),
+                EmailApplication.class);
 
         tomcat.getConnector();
         tomcat.start();

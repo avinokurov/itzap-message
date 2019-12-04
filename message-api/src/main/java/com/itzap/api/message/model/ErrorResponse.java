@@ -6,9 +6,9 @@ import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import com.itzap.common.ErrorCode;
 import com.itzap.common.ErrorDescriptor;
 import com.itzap.common.exception.IZapException;
-import io.swagger.annotations.ApiModel;
+import io.swagger.v3.oas.annotations.media.Schema;
 
-@ApiModel
+@Schema
 @JsonDeserialize(builder = ErrorResponse.Builder.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ErrorResponse implements ErrorDescriptor {
