@@ -1,5 +1,7 @@
 # itzap-message
 **itzap-message** micro-service project designed to send email messages. 
+Visit my [ITZap blog](http://itzap.com/itzap-jersey-embedded-tomcat-hk2-executable-jar-docker/) to read more about this project.
+
 ## Usage
 itzap-message desinged to run in a Docker container along with [postfix](http://www.postfix.org/BASIC_CONFIGURATION_README.html) that is also running in a Docker. Using `docker-compose` **itzap-message** can be deployed anyware and ready to send emails. 
 ### How To Build
